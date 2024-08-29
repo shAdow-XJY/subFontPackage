@@ -6,6 +6,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:path/path.dart' as path;
 
 void main() {
+  // debugPrint(path.separator);
+  // debugPrint(path.current);
   setCommonPrefix(path.current);
   runApp(const MyApp());
 }
@@ -164,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 TextButton(
                     onPressed: () async {
-                      await writeOutputPath(generateDirName+'\\a.ttf');
+                      await writeOutputPath(generateDirName + path.separator + 'a.ttf');
                       if (await launchUrl(Uri.file(getApplicationPath()))){
                         print(Uri.file(getApplicationPath()));
                       }
@@ -172,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: const Text('开始生成/start generate')
                 ),
                 Text(
-                  '字体生成地址'+generateDirName+'\\a.ttf',
+                  '字体生成地址'+generateDirName + path.separator + 'a.ttf',
                 ),
               ],
             ),

@@ -3,10 +3,12 @@
 字体包体积大小按需压缩。
 根据选择的目录或者文件，读取所需的文字，对原本的字体包进行剔除多余的内容，从而生成轻量的字体包。
 
+## 實際執行子庫
+[https://github.com/shAdow-XJY/fonttool_exe](https://github.com/shAdow-XJY/fonttool_exe)
+
 ## 支持环境
 
-1. 支持Windows
-2. macos和linux可以实现，也不难，但是还没做，需要我有一个macos和linux的电脑跑一下生成。
+1. 支持Windows\macOS
 
 ## 效果图
 ![subfont pic](https://github.com/shAdow-XJY/subFontPackage/blob/master/sub_font_package.png)
@@ -27,3 +29,4 @@
 5. [python 读取文件报错](https://blog.csdn.net/ooooooobh/article/details/105663790)
 6. [python 字符串与bytes转化](https://www.cnblogs.com/haitaoli/p/10587257.html)
 7. [python fonttools subset使用](https://duoduokou.com/python/50861899005552781266.html)
+8. [mac OS File permission](https://segmentfault.com/q/1010000042583114)

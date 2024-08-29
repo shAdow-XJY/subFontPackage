@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:path/path.dart' as path;
 
 Future<void> writeSourcePath(String sourcePath) async {
   if(getSourceTxtPath().isEmpty){return;}
@@ -22,15 +23,21 @@ String commonPrefix = '';
 void setCommonPrefix(String rootPrefix){
   commonPrefix = rootPrefix;
 }
+
+String getSeperator()
+{
+  return path.separator;
+}
+
 String getCommonTxtPath(){
-  String commonPath = commonPrefix + '\\fonttool\\';
+  String commonPath = commonPrefix + getSeperator() + 'fonttool' + getSeperator();
 
   if(Platform.isWindows){
-    commonPath += 'windows\\';
+    commonPath += 'windows' + getSeperator();
   }else if(Platform.isMacOS){
-    commonPath += 'macos\\';
+    commonPath += 'macos' + getSeperator();
   }else if(Platform.isLinux){
-    commonPath += 'linux\\';
+    commonPath += 'linux' + getSeperator();
   }else {
     return '';
   }
@@ -41,21 +48,21 @@ String getSourceTxtPath(){
   if(getCommonTxtPath().isEmpty){
     return '';
   }
-  String sourceTxtPath = getCommonTxtPath() + 'config\\sourcePath.txt';
+  String sourceTxtPath = getCommonTxtPath() + 'config' + getSeperator() +'sourcePath.txt';
   return sourceTxtPath;
 }
 String getOutputTxtPath(){
   if(getCommonTxtPath().isEmpty){
     return '';
   }
-  String outputTxtPath = getCommonTxtPath() + 'config\\outputPath.txt';
+  String outputTxtPath = getCommonTxtPath() + 'config' + getSeperator() +'outputPath.txt';
   return outputTxtPath;
 }
 String getFontTxtPath(){
   if(getCommonTxtPath().isEmpty){
     return '';
   }
-  String fontTxtPath = getCommonTxtPath() + 'config\\fontcontent.txt';
+  String fontTxtPath = getCommonTxtPath() + 'config' + getSeperator() +'fontcontent.txt';
   return fontTxtPath;
 }
 //返回可执行应用程序的路径
@@ -64,7 +71,7 @@ String getApplicationPath(){
   if(Platform.isWindows){
     applicationPath += 'fonttool.exe';
   }else if(Platform.isMacOS){
-    applicationPath += 'fonttool.bmg';
+    applicationPath += 'fonttool_macos';
   }else if(Platform.isLinux){
     applicationPath += 'fonttool.elf';
   }else {
